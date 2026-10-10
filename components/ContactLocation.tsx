@@ -121,9 +121,9 @@ export function ContactLocation({ settings }: ContactLocationProps) {
             <div className="pt-8 space-y-4">
               <a
                 href={buildTelLink(phone)}
-                className="w-full py-4 px-6 bg-[#1C1C1C] border border-[#C9A24B]/40 hover:border-[#E0BB63] text-[#F5F1E8] hover:text-[#C9A24B] font-serif text-sm uppercase tracking-widest font-semibold flex items-center justify-center gap-3 transition-all duration-300 shadow-md group"
+                className="w-full py-3.5 sm:py-4 px-4 sm:px-6 bg-[#1C1C1C] border border-[#C9A24B]/40 hover:border-[#E0BB63] text-[#F5F1E8] hover:text-[#C9A24B] font-serif text-xs sm:text-sm uppercase tracking-wider sm:tracking-widest font-semibold flex items-center justify-center gap-2 sm:gap-3 transition-all duration-300 shadow-md group text-center flex-wrap"
               >
-                <Phone className="w-5 h-5 text-[#C9A24B] group-hover:scale-110 transition-transform" />
+                <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-[#C9A24B] group-hover:scale-110 transition-transform flex-shrink-0" />
                 <span>{t.contact.callNow}: {phone}</span>
               </a>
 
@@ -134,9 +134,9 @@ export function ContactLocation({ settings }: ContactLocationProps) {
                 )}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-4 px-6 bg-[#C9A24B] hover:bg-[#E0BB63] text-[#0B0B0B] font-serif text-sm uppercase tracking-widest font-semibold flex items-center justify-center gap-3 shadow-gold-glow hover:shadow-gold-glow-lg transition-all duration-300 group"
+                className="w-full py-3.5 sm:py-4 px-4 sm:px-6 bg-[#C9A24B] hover:bg-[#E0BB63] text-[#0B0B0B] font-serif text-xs sm:text-sm uppercase tracking-wider sm:tracking-widest font-semibold flex items-center justify-center gap-2 sm:gap-3 shadow-gold-glow hover:shadow-gold-glow-lg transition-all duration-300 group text-center flex-wrap"
               >
-                <MessageCircle className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform flex-shrink-0" />
                 <span>{t.contact.chatWhatsApp}</span>
               </a>
             </div>

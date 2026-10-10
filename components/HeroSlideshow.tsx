@@ -66,7 +66,7 @@ export function HeroSlideshow({ settings, onOpenCustomOrder }: HeroSlideshowProp
     <section
       id="home"
       ref={sectionRef}
-      className="relative w-full h-[94vh] min-h-[640px] max-h-[1100px] flex items-center justify-center overflow-hidden bg-[#0B0B0B]"
+      className="relative w-full h-[96vh] min-h-[580px] max-h-[1100px] flex items-center justify-center overflow-hidden bg-[#0B0B0B] pt-16 sm:pt-20"
     >
       {/* Background Slideshow Layer with gentle parallax and slow zoom */}
       <motion.div
@@ -95,7 +95,7 @@ export function HeroSlideshow({ settings, onOpenCustomOrder }: HeroSlideshowProp
                 fill
                 priority={currentIndex === 0}
                 sizes="100vw"
-                className="object-cover object-center"
+                className="object-cover object-center brightness-[1.22] contrast-[1.06] saturate-[1.1]"
                 onError={() => {
                   setFailedImages((prev) => ({ ...prev, [currentIndex]: true }));
                 }}
@@ -112,24 +112,24 @@ export function HeroSlideshow({ settings, onOpenCustomOrder }: HeroSlideshowProp
         </AnimatePresence>
       </motion.div>
 
-      {/* Luxury Dark Gradients */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-[#0B0B0B]/70 to-[#0B0B0B]/85 pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-[#0B0B0B]/40 to-[#0B0B0B] pointer-events-none" />
+      {/* Luminous Warm Luxury Overlays (Significantly brightened to reveal real furniture detail) */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-[#0B0B0B]/20 to-[#0B0B0B]/35 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-[#0B0B0B]/50 pointer-events-none" />
 
       {/* Content Container */}
       <motion.div
         style={{ y: contentParallaxY }}
-        className="relative z-10 max-w-5xl mx-auto px-6 sm:px-8 text-center flex flex-col items-center will-change-transform"
+        className="relative z-10 max-w-5xl mx-auto px-4 xs:px-6 sm:px-8 text-center flex flex-col items-center will-change-transform"
       >
         {/* Eyebrow Pill */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#141414]/90 border border-[#C9A24B]/40 mb-6 shadow-gold-glow backdrop-blur-sm"
+          className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full bg-[#141414]/90 border border-[#C9A24B]/40 mb-4 sm:mb-6 shadow-gold-glow backdrop-blur-sm"
         >
           <Sparkles className="w-3.5 h-3.5 text-[#C9A24B]" />
-          <span className="text-[11px] md:text-xs tracking-[0.25em] uppercase text-[#F5F1E8] font-medium font-sans">
+          <span className="text-[10px] xs:text-[11px] md:text-xs tracking-[0.2em] sm:tracking-[0.25em] uppercase text-[#F5F1E8] font-medium font-sans">
             Century Mall · Addis Ababa, Ethiopia
           </span>
         </motion.div>
@@ -139,7 +139,7 @@ export function HeroSlideshow({ settings, onOpenCustomOrder }: HeroSlideshowProp
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15, ease: 'easeOut' }}
-          className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[#F5F1E8] mb-6 leading-[1.1]"
+          className="font-serif text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[#F5F1E8] mb-4 sm:mb-6 leading-[1.15] drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)]"
         >
           IMD <span className="text-[#C9A24B] italic font-normal">Furniture</span> & Design
         </motion.h1>
@@ -149,7 +149,7 @@ export function HeroSlideshow({ settings, onOpenCustomOrder }: HeroSlideshowProp
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
-          className="text-base sm:text-xl md:text-2xl text-[#F5F1E8]/90 max-w-3xl font-light leading-relaxed mb-10 tracking-wide font-serif"
+          className="text-sm xs:text-base sm:text-xl md:text-2xl text-[#F5F1E8] max-w-3xl font-light leading-relaxed mb-6 sm:mb-10 tracking-wide font-serif drop-shadow-[0_2px_10px_rgba(0,0,0,0.85)]"
         >
           &ldquo;{sentence}&rdquo;
         </motion.p>
@@ -159,12 +159,12 @@ export function HeroSlideshow({ settings, onOpenCustomOrder }: HeroSlideshowProp
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.45, ease: 'easeOut' }}
-          className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full sm:w-auto"
+          className="flex flex-col xs:flex-row items-center gap-3 sm:gap-6 w-full xs:w-auto px-2 xs:px-0"
         >
           <a
             href="#gallery"
             onClick={scrollToGallery}
-            className="w-full sm:w-auto px-8 py-4 rounded-none bg-[#C9A24B] text-[#0B0B0B] font-serif text-xs md:text-sm tracking-widest uppercase font-semibold hover:bg-[#E0BB63] shadow-gold-glow hover:shadow-gold-glow-lg transition-all duration-300 flex items-center justify-center gap-3 group"
+            className="w-full xs:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-none bg-[#C9A24B] text-[#0B0B0B] font-serif text-xs md:text-sm tracking-widest uppercase font-semibold hover:bg-[#E0BB63] shadow-gold-glow hover:shadow-gold-glow-lg transition-all duration-300 flex items-center justify-center gap-3 group"
           >
             <span>{t.hero.viewGallery}</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -173,7 +173,7 @@ export function HeroSlideshow({ settings, onOpenCustomOrder }: HeroSlideshowProp
           <button
             type="button"
             onClick={onOpenCustomOrder}
-            className="w-full sm:w-auto px-8 py-4 rounded-none bg-[#141414]/90 border border-[#C9A24B]/50 text-[#F5F1E8] font-serif text-xs md:text-sm tracking-widest uppercase font-semibold hover:border-[#E0BB63] hover:text-[#C9A24B] hover:bg-[#1C1C1C] transition-all duration-300 flex items-center justify-center gap-2"
+            className="w-full xs:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-none bg-[#141414]/90 border border-[#C9A24B]/50 text-[#F5F1E8] font-serif text-xs md:text-sm tracking-widest uppercase font-semibold hover:border-[#E0BB63] hover:text-[#C9A24B] hover:bg-[#1C1C1C] transition-all duration-300 flex items-center justify-center gap-2"
           >
             <Sparkles className="w-4 h-4 text-[#C9A24B]" />
             <span>{t.hero.customOrder}</span>

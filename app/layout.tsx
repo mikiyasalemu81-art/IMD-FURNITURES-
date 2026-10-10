@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Playfair_Display, Inter, Noto_Sans_Ethiopic } from 'next/font/google';
 import './globals.css';
 import { LanguageProvider } from '@/components/LanguageContext';
@@ -10,6 +10,14 @@ import { SavedPiecesDrawer } from '@/components/SavedPiecesDrawer';
 import { CustomOrderModal } from '@/components/CustomOrderModal';
 import { Preloader } from '@/components/Preloader';
 import { SmoothScroll } from '@/components/SmoothScroll';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: 'cover',
+  themeColor: '#0B0B0B',
+};
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -145,7 +153,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="bg-[#0B0B0B] text-[#F5F1E8] antialiased selection:bg-[#C9A24B] selection:text-[#0B0B0B] flex flex-col min-h-screen">
+      <body className="bg-[#0B0B0B] text-[#F5F1E8] antialiased selection:bg-[#C9A24B] selection:text-[#0B0B0B] flex flex-col min-h-screen overflow-x-hidden w-full max-w-[100vw]">
         <LanguageProvider>
           <SmoothScroll>
             <Preloader />
@@ -156,13 +164,13 @@ export default function RootLayout({
                 whatsapp={siteSettings.whatsapp}
               />
 
-              <main className="flex-1 w-full">{children}</main>
+              <main className="flex-1 w-full overflow-x-hidden">{children}</main>
 
               <Footer settings={siteSettings} />
 
               {/* Global Floating Elements */}
               <SavedPiecesDrawer whatsapp={siteSettings.whatsapp} />
-              <CustomOrderModal whatsapp={siteSettings.whatsapp} />
+              <CustomOrderModal whatsapp={siteSettings.whatsapp} phoneCall={siteSettings.phoneCall} />
             </SavedPiecesProvider>
           </SmoothScroll>
         </LanguageProvider>

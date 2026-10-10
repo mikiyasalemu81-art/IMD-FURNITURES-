@@ -2,12 +2,13 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, X, ChevronRight, ChevronLeft, MessageCircle, Check } from 'lucide-react';
+import { Sparkles, X, ChevronRight, ChevronLeft, MessageCircle, Check, Phone } from 'lucide-react';
 import { useLanguage } from './LanguageContext';
-import { buildWhatsAppLink } from '@/lib/business';
+import { buildWhatsAppLink, buildTelLink } from '@/lib/business';
 
 interface CustomOrderModalProps {
   whatsapp?: string;
+  phoneCall?: string;
   isOpen?: boolean;
   onClose?: () => void;
   showFloatingButton?: boolean;
@@ -15,6 +16,7 @@ interface CustomOrderModalProps {
 
 export function CustomOrderModal({
   whatsapp = '+251 93 032 9010',
+  phoneCall = '+251 98 479 5010',
   isOpen: controlledIsOpen,
   onClose: controlledOnClose,
   showFloatingButton = true,
@@ -69,19 +71,32 @@ export function CustomOrderModal({
 
   return (
     <>
-      {/* Floating Gold Action Button on Public Pages */}
+      {/* Floating Action Buttons pinned at bottom-right */}
       {showFloatingButton && (
-        <div className="fixed bottom-6 right-6 z-40">
+        <div className="fixed bottom-6 right-5 sm:right-6 z-40 flex flex-col items-end gap-3 pointer-events-auto">
+          {/* Pinned Call Now Phone Icon Button (Pinned directly over the custom order button) */}
+          <motion.a
+            href={buildTelLink(phoneCall)}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.92 }}
+            className="flex items-center justify-center w-12 h-12 sm:w-13 sm:h-13 rounded-full bg-[#C9A24B] text-[#0B0B0B] shadow-[0_4px_20px_rgba(201,162,75,0.55)] hover:bg-[#E0BB63] hover:shadow-[0_4px_30px_rgba(201,162,75,0.75)] transition-all duration-300 border-2 border-[#0B0B0B] group"
+            aria-label="Call IMD Furniture Now"
+            title={`Call Now (${phoneCall})`}
+          >
+            <Phone className="w-5 h-5 fill-current text-[#0B0B0B] group-hover:rotate-12 transition-transform" />
+          </motion.a>
+
+          {/* Custom Order Trigger Button */}
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={handleOpen}
-            className="flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-[#C9A24B] text-[#0B0B0B] font-serif font-bold text-xs uppercase tracking-widest shadow-[0_0_25px_rgba(201,162,75,0.45)] hover:bg-[#E0BB63] hover:shadow-[0_0_35px_rgba(201,162,75,0.65)] transition-all duration-300 group"
+            className="flex items-center gap-2.5 px-4 sm:px-5 py-3 sm:py-3.5 rounded-full bg-[#141414] text-[#F5F1E8] border border-[#C9A24B]/60 hover:border-[#C9A24B] hover:text-[#C9A24B] font-serif font-bold text-xs uppercase tracking-widest shadow-[0_4px_25px_rgba(0,0,0,0.85)] hover:shadow-gold-glow transition-all duration-300 group"
             aria-label="Open Custom Order Consultation"
           >
-            <Sparkles className="w-4 h-4 text-[#0B0B0B] group-hover:rotate-12 transition-transform" />
+            <Sparkles className="w-4 h-4 text-[#C9A24B] group-hover:rotate-12 transition-transform" />
             <span className="hidden sm:inline">{t.customOrderModal.triggerButton}</span>
-            <span className="sm:hidden">Custom</span>
+            <span className="sm:hidden">Custom Order</span>
           </motion.button>
         </div>
       )}

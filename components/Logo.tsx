@@ -37,11 +37,11 @@ export function Logo({ className = '', size = 'md' }: LogoProps) {
         </div>
       )}
 
-      <div className="flex flex-col">
-        <span className="font-serif tracking-[0.18em] text-sm md:text-base font-semibold text-[#F5F1E8] group-hover:text-[#E0BB63] transition-colors leading-tight">
+      <div className="flex flex-col min-w-0">
+        <span className="font-serif tracking-[0.12em] sm:tracking-[0.18em] text-xs sm:text-sm md:text-base font-semibold text-[#F5F1E8] group-hover:text-[#E0BB63] transition-colors leading-tight truncate">
           IMD FURNITURE
         </span>
-        <span className="text-[9px] md:text-[10px] tracking-[0.25em] uppercase text-[#C9A24B] font-light">
+        <span className="text-[8px] sm:text-[9px] md:text-[10px] tracking-[0.16em] sm:tracking-[0.25em] uppercase text-[#C9A24B] font-light truncate">
           & DESIGN · ADDIS ABABA
         </span>
       </div>
