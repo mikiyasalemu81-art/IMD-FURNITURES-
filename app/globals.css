@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0B0B0B;
+  --surface: #141414;
+  --gold: #C9A24B;
+  --gold-hover: #E0BB63;
+  --cream: #F5F1E8;
+  --muted: #9A9588;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #0B0B0B;
+  color: #F5F1E8;
+  color-scheme: dark;
+}
+
+body {
+  background-color: #0B0B0B;
+  color: #F5F1E8;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+  selection-background-color: #C9A24B;
+  selection-color: #0B0B0B;
+}
+
+::selection {
+  background: #C9A24B;
+  color: #0B0B0B;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B0B0B;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2A261D;
+  border-radius: 4px;
+  border: 1px solid rgba(201, 162, 75, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C9A24B;
+}
+
+/* Luxury Gold Glow Utilities */
+.gold-glow {
+  box-shadow: 0 0 25px rgba(201, 162, 75, 0.2);
+}
+
+/* Instant preloader hide when session already completed */
+html.preloader-done #imd-preloader {
+  display: none !important;
+}
+
+
+.gold-glow-lg {
+  box-shadow: 0 0 45px rgba(201, 162, 75, 0.35);
+}
+
+/* Soft transition defaults */
+* {
+  border-color: rgba(201, 162, 75, 0.15);
+}
