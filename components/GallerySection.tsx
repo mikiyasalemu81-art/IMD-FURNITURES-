@@ -112,10 +112,10 @@ export function GallerySection({
   }, []);
 
   return (
-    <section id="gallery" className="py-20 sm:py-32 bg-[#0B0B0B] relative overflow-hidden">
+    <section id="gallery" className="parallax-3d-scene py-20 sm:py-32 bg-[#0B0B0B] relative overflow-hidden perspective-[1200px]">
       {/* Background ambient lighting */}
-      <div className="absolute top-1/3 right-0 w-96 h-96 bg-[#C9A24B]/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-[#C9A24B]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="parallax-depth-bg absolute top-1/3 right-0 w-96 h-96 bg-[#C9A24B]/5 rounded-full blur-3xl pointer-events-none will-change-transform" />
+      <div className="parallax-depth-bg absolute bottom-1/4 left-0 w-80 h-80 bg-[#C9A24B]/5 rounded-full blur-3xl pointer-events-none will-change-transform" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -131,7 +131,7 @@ export function GallerySection({
             <span>{t.gallery.badge}</span>
           </div>
 
-          <h2 className="font-serif text-3xl xs:text-4xl sm:text-5xl font-bold text-[#F5F1E8] tracking-tight mb-4 leading-tight">
+          <h2 className="kinetic-text font-serif text-3xl xs:text-4xl sm:text-5xl font-bold text-[#F5F1E8] tracking-tight mb-4 leading-tight">
             {t.gallery.heading}
           </h2>
 
@@ -285,7 +285,7 @@ export function GallerySection({
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: (index % 4) * 0.08 }}
-                    className="w-[82vw] xs:w-[78vw] sm:w-[360px] md:w-[380px] lg:w-[420px] flex-shrink-0 snap-start group relative bg-[#141414] border border-[#C9A24B]/20 hover:border-[#C9A24B]/70 transition-all duration-300 overflow-hidden flex flex-col shadow-xl hover:shadow-gold-glow"
+                    className="velocity-skew w-[82vw] xs:w-[78vw] sm:w-[360px] md:w-[380px] lg:w-[420px] flex-shrink-0 snap-start group relative bg-[#141414] border border-[#C9A24B]/20 hover:border-[#C9A24B]/70 transition-all duration-300 overflow-hidden flex flex-col shadow-xl hover:shadow-gold-glow will-change-transform"
                   >
                     {/* Photo Container */}
                     <div

@@ -37,22 +37,22 @@ export function OurStory({ settings }: OurStoryProps) {
     <section
       id="story"
       ref={sectionRef}
-      className="py-24 sm:py-32 bg-[#0B0B0B] relative overflow-hidden"
+      className="parallax-3d-scene py-24 sm:py-32 bg-[#0B0B0B] relative overflow-hidden perspective-[1200px]"
     >
       {/* Subtle architectural ambient background glow */}
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-[#C9A24B]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="parallax-depth-bg absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-[#C9A24B]/5 rounded-full blur-3xl pointer-events-none will-change-transform" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Left Column: Workshop Photo with gentle parallax */}
+        <div className="split-plane-container grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Left Column: Workshop Photo with split plane & velocity skew */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="lg:col-span-5 relative"
+            className="split-plane-left lg:col-span-5 relative will-change-transform"
           >
-            <div className="relative aspect-[4/5] w-full overflow-hidden border border-[#C9A24B]/30 shadow-2xl group">
+            <div className="velocity-skew relative aspect-[4/5] w-full overflow-hidden border border-[#C9A24B]/30 shadow-2xl group will-change-transform">
               <motion.div
                 style={{ y: photoParallax }}
                 className="absolute inset-0 w-full h-[115%] -top-[7.5%] will-change-transform"
@@ -70,7 +70,7 @@ export function OurStory({ settings }: OurStoryProps) {
               <div className="absolute inset-3 border border-[#C9A24B]/20 pointer-events-none z-10" />
 
               {/* Floating Atelier Seal */}
-              <div className="absolute bottom-6 left-6 right-6 p-4 bg-[#0B0B0B]/90 backdrop-blur-md border border-[#C9A24B]/30 z-10">
+              <div className="parallax-depth-fg absolute bottom-6 left-6 right-6 p-4 bg-[#0B0B0B]/90 backdrop-blur-md border border-[#C9A24B]/30 z-10 will-change-transform">
                 <p className="font-serif text-[#C9A24B] text-xs uppercase tracking-widest font-semibold mb-1">
                   Master Joinery Atelier
                 </p>
@@ -81,13 +81,13 @@ export function OurStory({ settings }: OurStoryProps) {
             </div>
           </motion.div>
 
-          {/* Right Column: Warm, Proud Story */}
+          {/* Right Column: Warm, Proud Story with Opposing Split Plane */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-            className="lg:col-span-7 space-y-6"
+            className="split-plane-right lg:col-span-7 space-y-6 will-change-transform"
           >
             {/* Section Tag */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#141414] border border-[#C9A24B]/30 text-xs text-[#C9A24B] font-medium tracking-widest uppercase">
@@ -95,7 +95,7 @@ export function OurStory({ settings }: OurStoryProps) {
               <span>{t.story.badge}</span>
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F5F1E8] tracking-tight leading-[1.15]">
+            <h2 className="kinetic-text font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F5F1E8] tracking-tight leading-[1.15]">
               {t.story.heading}
             </h2>
 

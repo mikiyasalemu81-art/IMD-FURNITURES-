@@ -41,7 +41,7 @@ export function ContactLocation({ settings }: ContactLocationProps) {
   };
 
   return (
-    <section id="contact" className="py-24 sm:py-32 bg-[#0B0B0B] relative">
+    <section id="contact" className="parallax-3d-scene py-24 sm:py-32 bg-[#0B0B0B] relative perspective-[1200px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -55,7 +55,7 @@ export function ContactLocation({ settings }: ContactLocationProps) {
             <Compass className="w-3.5 h-3.5" />
             <span>{t.contact.badge}</span>
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F5F1E8] tracking-tight">
+          <h2 className="kinetic-text font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F5F1E8] tracking-tight">
             {t.contact.heading}
           </h2>
           <p className="mt-4 text-base text-[#9A9588] font-light leading-relaxed">
@@ -63,15 +63,15 @@ export function ContactLocation({ settings }: ContactLocationProps) {
           </p>
         </motion.div>
 
-        {/* Primary Contact Action Hub */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+        {/* Primary Contact Action Hub with Split Planes */}
+        <div className="split-plane-container grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
           {/* Left Column: Direct Call, WhatsApp & Hours Card (5 cols) */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
-            className="lg:col-span-5 bg-[#141414] border border-[#C9A24B]/30 p-8 sm:p-10 flex flex-col justify-between shadow-2xl relative"
+            className="split-plane-left velocity-skew lg:col-span-5 bg-[#141414] border border-[#C9A24B]/30 p-8 sm:p-10 flex flex-col justify-between shadow-2xl relative will-change-transform"
           >
             <div className="space-y-8">
               {/* Google 5.0 Star Badge */}
@@ -142,13 +142,13 @@ export function ContactLocation({ settings }: ContactLocationProps) {
             </div>
           </motion.div>
 
-          {/* Right Column: Embedded Map & Directions CTA (7 cols) */}
+          {/* Right Column: Embedded Map & Directions CTA (7 cols) with Opposing Split Plane */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.15, ease: 'easeOut' }}
-            className="lg:col-span-7 bg-[#141414] border border-[#C9A24B]/30 overflow-hidden flex flex-col justify-between shadow-2xl relative min-h-[420px]"
+            className="split-plane-right velocity-skew lg:col-span-7 bg-[#141414] border border-[#C9A24B]/30 overflow-hidden flex flex-col justify-between shadow-2xl relative min-h-[420px] will-change-transform"
           >
             {/* Embedded interactive Google Map focused on Century Mall, Addis Ababa */}
             <div className="relative w-full h-[360px] sm:h-[400px] bg-[#0B0B0B]">
